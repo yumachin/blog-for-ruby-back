@@ -2,6 +2,7 @@
     namespace :api do
       namespace :v1 do
         # "posts/index(show)"のURLにアクセスしたとき、index(show)アクションが実行される
+        # resources :posts とすることで PostsController が自動的に参照
         resources :posts, only: [:index, :show, :create, :update, :destroy]
       end
     end

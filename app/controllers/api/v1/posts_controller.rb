@@ -13,6 +13,7 @@ class Api::V1::PostsController < ApplicationController
 
   # 特定のリソースを詳細表示
   def show
+    # params[:id]: GET /posts/5 のリクエストが送られた場合、params[:id] は 5
     @post = Post.find(params[:id])
     render json: @post
   end
@@ -41,8 +42,8 @@ class Api::V1::PostsController < ApplicationController
   end
 
   private
-  # ストロングパラメーターを使用するとき:title(シンボル)を利用する
   def post_params
+    # require(:post): この post は model 名が由来(Postモデル)
     params.require(:post).permit(:title, :content)
   end
 end
